@@ -14,7 +14,7 @@ const Profile = () => {
     const handleSave = () => {
         localStorage.setItem('username', username)
         localStorage.setItem('profileImg', profileImg)
-        setMessage('Perfil atualizado com sucesso ✅')
+        setMessage('Perfil atualizado com sucesso ')
         setTimeout(() => setMessage(''), 3000)
     }
 

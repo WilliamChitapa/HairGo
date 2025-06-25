@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
 
 const allSalons = [
-    { name: "Barber Shop A", img: "/img/img1.jpg" },
-    { name: "Barber Shop B", img: "/img/img1.jpg" },
+    { name: "Barber Shop A", img: "/img/studio.jpg" },
+    { name: "Barber Shop B", img: "/img/modelo.jpg" },
     { name: "Hair Studio", img: "/img/img1.jpg" },
-    { name: "Fade Master", img: "/img/img1.jpg" },
-    { name: "Urban Cuts", img: "/img/img1.jpg" },
-    { name: "Classic Style", img: "/img/img1.jpg" }
+    { name: "Fade Master", img: "/img/kids.jpg" },
+    { name: "Urban Cuts", img: "/img/hair.jpg" },
+    { name: "Classic Style", img: "/img/facial.jpg" }
 ]
 
 const AllSalons = () => {

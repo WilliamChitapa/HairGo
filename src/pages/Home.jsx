@@ -4,16 +4,17 @@ import { useNavigate } from 'react-router-dom'
 import BottomNav from '../components/BottomNav'
 
 const categories = [
-    { name: "Haircuts", img: "/img/img1.jpg" },
-    { name: "Nail", img: "/img/img1.jpg" },
+    { name: "Haircuts", img: "/img/cuts.jpg" },
+    { name: "Nail", img: "/img/nail.jpg" },
     { name: "Facial", img: "/img/img1.jpg" },
 ]
 
 const allSalons = [
-    { name: "Barber Shop A", img: "/img/img1.jpg" },
-    { name: "Barber Shop B", img: "/img/img1.jpg" },
-    { name: "Hair Studio", img: "/img/img1.jpg" },
-    { name: "Fade Master", img: "/img/img1.jpg" }
+    { name: "Barber Shop A", img: "/img/facial.jpg" },
+    { name: "New Look Studio", img: "/img/studio.jpg" },
+    { name: "Hair Revolution", img: "/img/hair.jpg" },
+    { name: "Fade Master", img: "/img/modelo.jpg" },
+    { name: "Top Styles", img: "/img/img1.jpg" }
 ]
 
 const Home = () => {
@@ -21,6 +22,13 @@ const Home = () => {
     const profileImg = localStorage.getItem('profileImg')
     const navigate = useNavigate()
     const [search, setSearch] = useState('')
+
+    const getGreeting = () => {
+        const hour = new Date().getHours()
+        if (hour < 12) return 'Good morning!'
+        if (hour < 18) return 'Good afternoon!'
+        return 'Good evening!'
+    }
 
     const filteredSalons = allSalons.filter((salon) =>
         salon.name.toLowerCase().includes(search.toLowerCase())
@@ -41,7 +49,7 @@ const Home = () => {
                         )}
                         <div>
                             <p className="text-sm text-gray-400">Hello {username} 👋</p>
-                            <h1 className="text-xl font-semibold">Good morning!</h1>
+                            <h1 className="text-xl font-semibold">{getGreeting()}</h1>
                         </div>
                     </div>
 
@@ -63,6 +71,11 @@ const Home = () => {
                         className="w-full bg-gray-800 py-3 px-4 rounded-xl text-sm placeholder-gray-400"
                     />
                     <FiSearch className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                    {search && (
+                        <p className="text-sm text-gray-500 mt-2">
+                            {filteredSalons.length} resultado(s) encontrado(s)
+                        </p>
+                    )}
                 </div>
 
                 {/* Categorias */}
@@ -87,7 +100,7 @@ const Home = () => {
                         </button>
                     </div>
                     <div className="bg-gray-800 p-4 rounded-xl">
-                        <img src="/img/img1.jpg" alt="Offer" className="w-full rounded-xl mb-3" />
+                        <img src="/img/kids.jpg" alt="Offer" className="w-full rounded-xl mb-3" />
                         <p className="text-sm">Haircut</p>
                         <h3 className="font-bold text-xl text-cyan-400">30% Free</h3>
                         <p className="text-xs text-gray-400">Aug 12 - Aug 27</p>

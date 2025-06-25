@@ -1,5 +1,6 @@
+// src/pages/Services.jsx
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { FiFilter, FiHome, FiCalendar, FiUser } from 'react-icons/fi'
 
 const specialists = [
@@ -11,7 +12,7 @@ const specialists = [
 const services = [
     { name: 'Hair cutting', location: 'Barbershop (12.5km)', img: '/img/img1.jpg' },
     { name: 'Shaving', location: 'Barbershop (5.8km)', img: '/img/img2.jpg' },
-    { name: 'Kids hair cut', location: 'Barbershop (8.2km)', img: '/img/img3.jpg' },
+    { name: 'Kids hair cut', location: 'Barbershop (8.2km)', img: '/img/kids.jpg' },
     { name: 'Facial & massage', location: 'Barbershop (7.9km)', img: '/img/img1.jpg' },
 ]
 
@@ -28,7 +29,10 @@ const Services = () => {
                 {/* Título */}
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-2xl font-semibold">Services</h1>
-                    <button className="bg-gray-700 p-2 rounded-full">
+                    <button
+                        className="bg-gray-700 p-2 rounded-full"
+                        onClick={() => alert("Filtros disponíveis em breve!")}
+                    >
                         <FiFilter className="text-white" />
                     </button>
                 </div>
@@ -80,11 +84,17 @@ const Services = () => {
                 </div>
             </div>
 
-            {/* Navegação inferior */}
+            {/* Navegação inferior com Links */}
             <div className="bg-gray-800 flex justify-around py-4 mt-6 rounded-t-3xl">
-                <FiHome className="text-gray-400 text-2xl" />
-                <FiCalendar className="text-cyan-400 text-2xl" />
-                <FiUser className="text-gray-400 text-2xl" />
+                <Link to="/">
+                    <FiHome className="text-gray-400 text-2xl" />
+                </Link>
+                <Link to="/services">
+                    <FiCalendar className="text-cyan-400 text-2xl" />
+                </Link>
+                <Link to="/profile">
+                    <FiUser className="text-gray-400 text-2xl" />
+                </Link>
             </div>
         </div>
     )
